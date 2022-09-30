@@ -7,68 +7,71 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Item> _itemsSkins;
     [SerializeField] private List<Item> _itemsStands;
-    [SerializeField] private TextMeshProUGUI _groupName;
+    [SerializeField] private SaveButton _saveButton;
     [SerializeField] private TextMeshProUGUI _itemName;
     void Start()
     {
         LoadData();
     }
 
-    void Update()
-    {
-        SaveData();
-    }
-    
     void LoadData()
     {
         if (PlayerPrefs.HasKey("itemName"))
         {
-            _itemName.text = PlayerPrefs.GetString("itemName");
-            _groupName.text = PlayerPrefs.GetString("groupName");
-
             string itemSkin = PlayerPrefs.GetString("itemsSkins");
             string itemStand = PlayerPrefs.GetString("itemsStands");
 
+            _itemName.text = itemSkin;
             foreach (var item in _itemsSkins)
             {
+                _saveButton.OnSave += SaveData;
+                item.SetIsSelected(false);
+                
                 if (item.Name == itemSkin)
                 {
                     item.gameObject.SetActive(true);
                     item.SetPosition();
+                    item.SetIsSelected(true);
                 }
             }
 
             foreach (var item in _itemsStands)
             {
+                _saveButton.OnSave += SaveData;
+                item.SetIsSelected(false);
+
                 if (item.Name == itemStand)
                 {
                     item.gameObject.SetActive(true);
                     item.SetPosition();
+                    item.SetIsSelected(true);
                 }
             }
+            
+            _saveButton.gameObject.SetActive(false);
         }
     }
 
     void SaveData()
     {
-        PlayerPrefs.SetString("itemName", _itemName.text);
-        PlayerPrefs.SetString("groupName", _groupName.text);
-
         foreach (var item in _itemsSkins)
         {
-            if (item.gameObject.activeSelf)
+            item.SetIsSelected(false);
+            if (item.gameObject.activeSelf && !item.IsLocked)
             {
                 PlayerPrefs.SetString("itemsSkins", item.Name);
-                break;
+                item.SetIsSelected(true);
+
             }
         }
         
         foreach (var item in _itemsStands)
         {
-            if (item.gameObject.activeSelf)
+            item.SetIsSelected(false);
+            if (item.gameObject.activeSelf && !item.IsLocked)
             {
                 PlayerPrefs.SetString("itemsStands", item.Name);
-                break;
+                item.SetIsSelected(true);
             }
         }
     }
