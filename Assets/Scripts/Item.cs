@@ -26,7 +26,8 @@ public class Item : MonoBehaviour
         // sequence.Kill();
     }
 
-    public void StopAnimation()
+    public void SetPosition()
     {
+        transform.position = _endPosition.position;
     }
 }
