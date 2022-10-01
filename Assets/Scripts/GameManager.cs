@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _prefabMark;
 
-    private GameObject _gameObjectMark;
+    private GameObject _gameObjectMarkStand;
+    private GameObject _gameObjectMarkSkins;
     void Start()
     {
         LoadData();
+        SaveData();
         
         foreach (var button in _buttonsSkins)
         {
@@ -91,15 +93,15 @@ public class GameManager : MonoBehaviour
 
                 if (_buttonsSkins[index].gameObject.activeSelf)
                 {
-                    if (_gameObjectMark)
+                    if (_gameObjectMarkSkins)
                     {
-                        Destroy(_gameObjectMark);
-                        _gameObjectMark = _buttonsSkins[index].SpawnMark(_prefabMark);
+                        Destroy(_gameObjectMarkSkins);
+                        _gameObjectMarkSkins = _buttonsSkins[index].SpawnMark(_prefabMark);
                     }
 
                     else
                     {
-                        _gameObjectMark = _buttonsSkins[index].SpawnMark(_prefabMark);
+                        _gameObjectMarkSkins = _buttonsSkins[index].SpawnMark(_prefabMark);
                     }
                 }
             }
@@ -118,15 +120,15 @@ public class GameManager : MonoBehaviour
 
                 if (_buttonsStands[index].gameObject.activeSelf)
                 {
-                    if (_gameObjectMark)
+                    if (_gameObjectMarkStand)
                     {
-                        Destroy(_gameObjectMark);
-                        _gameObjectMark = _buttonsStands[index].SpawnMark(_prefabMark);
+                        Destroy(_gameObjectMarkStand);
+                        _gameObjectMarkStand = _buttonsStands[index].SpawnMark(_prefabMark);
                     }
 
                     else
                     {
-                        _gameObjectMark = _buttonsStands[index].SpawnMark(_prefabMark);
+                        _gameObjectMarkStand = _buttonsStands[index].SpawnMark(_prefabMark);
                     }
                 }
 
