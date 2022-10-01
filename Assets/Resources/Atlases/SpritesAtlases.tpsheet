@@ -1,0 +1,25 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:ee24b89026ee1ac6e8c28e9ca6bbb3f4:710d62117d28590551c4d476b5d39da5:0b9d4cf2c1031c117e638a0cbd9e4f98$
+#
+:format=40300
+:texture=Sprites.png
+:size=2048x1024
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+Active;413;852;147;172; 0.5;0.5; 0;0;0;0
+b0b129065c97d0bb633f2ce185609322;0;132;1280;720; 0.5;0.5; 0;0;0;0
+LockedNotSelected;560;852;147;172; 0.5;0.5; 0;0;0;0
+LockedSelected;707;852;147;172; 0.5;0.5; 0;0;0;0
+NotActive;854;852;147;172; 0.5;0.5; 0;0;0;0
+Selected;0;962;73;62; 0.5;0.5; 0;0;0;0
+SkinsActive;73;965;85;59; 0.5;0.5; 0;0;0;0
+SkinsDisable;158;965;85;59; 0.5;0.5; 0;0;0;0
+StandDisable;243;965;85;59; 0.5;0.5; 0;0;0;0
+StandeActive;328;965;85;59; 0.5;0.5; 0;0;0;0

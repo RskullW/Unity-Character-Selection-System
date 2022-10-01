@@ -23,13 +23,9 @@ public class Item : MonoBehaviour
         _spawnPosition = transform.position;
     }
 
-    public void StartAnimation()
+    public void ChangeItem()
     {
-        var sequence = DOTween.Sequence();
-        transform.position = _spawnPosition;
-        
-        sequence.Append(transform.DOMove(_endPosition.position, 0.6f));
-
+        StartAnimation();
         _lockedLable.SetActive(IsLocked);
         _selectButton.SetActive(false);
 
@@ -42,6 +38,16 @@ public class Item : MonoBehaviour
                 _selectButton.SetActive(false);
             }
         }
+    }
+    
+    private void StartAnimation()
+    {
+        var sequence = DOTween.Sequence();
+        transform.position = _spawnPosition;
+        
+        sequence.Append(transform.DOMove(_endPosition.position, 0.6f));
+
+       
     }
 
     public void SetPosition()
