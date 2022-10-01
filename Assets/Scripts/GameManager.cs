@@ -198,9 +198,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    void SetSelectedObject()
-    {
-        
-    }
 }
