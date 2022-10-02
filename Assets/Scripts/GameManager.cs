@@ -1,30 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<Item> _itemsSkins;
-    [SerializeField] private List<Item> _itemsStands;
-    [SerializeField] private List<ScriptButton> _buttonsSkins;
-    [SerializeField] private List<ScriptButton> _buttonsStands;
+    [SerializeField] [NotNull] private List<Item> _itemsSkins;
+    [SerializeField] [NotNull] private List<Item> _itemsStands;
+    [SerializeField] [NotNull] private List<ScriptButton> _buttonsSkins;
+    [SerializeField] [NotNull] private List<ScriptButton> _buttonsStands;
     
-    [SerializeField] private SaveButton _saveButton;
-    [SerializeField] private TextMeshProUGUI _itemName;
+    [SerializeField] [NotNull] private SaveButton _saveButton;
+    [SerializeField] [NotNull] private TextMeshProUGUI _itemName;
     
-    [SerializeField] private Sprite _spriteLockedActive;
-    [SerializeField] private Sprite _spriteLockedNotActive;
-    [SerializeField] private Sprite _spriteNotActive;
-    [SerializeField] private Sprite _spriteActive;
+    [SerializeField] [NotNull] private Sprite _spriteLockedActive;
+    [SerializeField] [NotNull] private Sprite _spriteLockedNotActive;
+    [SerializeField] [NotNull] private Sprite _spriteNotActive;
+    [SerializeField] [NotNull] private Sprite _spriteActive;
 
-    [SerializeField] private GameObject _prefabMark;
+    [SerializeField] [NotNull] private GameObject _prefabMark;
 
-    private GameObject _gameObjectMarkStand;
-    private GameObject _gameObjectMarkSkins;
+    [NotNull] private GameObject _gameObjectMarkStand;
+    [NotNull] private GameObject _gameObjectMarkSkins;
     void Start()
     {
         LoadData();

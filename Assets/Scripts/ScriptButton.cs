@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +10,11 @@ public class ScriptButton : MonoBehaviour
 {
     public event Action OnClick;
     
-    [SerializeField] private List<Item> _items;
+    [SerializeField] [NotNull] private List<Item> _items;
     [SerializeField] private int _numberItem;
-    [SerializeField] private TextMeshProUGUI _itemName;
+    [SerializeField] [NotNull] private TextMeshProUGUI _itemName;
 
-    [SerializeField] Image _backgroundImage;
+    [SerializeField] [NotNull] Image _backgroundImage;
     [SerializeField] private Vector3 _positionMark;
     
     private void Awake()
