@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] [NotNull] private GameObject _prefabMark;
 
-    [NotNull] private GameObject _gameObjectMarkStand;
-    [NotNull] private GameObject _gameObjectMarkSkins;
+    private GameObject _gameObjectMarkStand;
+    private GameObject _gameObjectMarkSkins;
     void Start()
     {
+        _saveButton.OnSave += SaveData;
+
         LoadData();
         SaveData();
         
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
     }
     void LoadData()
     {
-        if (PlayerPrefs.HasKey("itemName"))
+        if (PlayerPrefs.HasKey("itemsSkins"))
         {
             string itemSkin = PlayerPrefs.GetString("itemsSkins");
             string itemStand = PlayerPrefs.GetString("itemsStands");
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
             _itemName.text = itemSkin;
             foreach (var item in _itemsSkins)
             {
-                _saveButton.OnSave += SaveData;
+                
                 item.SetIsSelected(false);
                 
                 if (item.Name == itemSkin)
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
                     {
                         Destroy(_gameObjectMarkSkins);
                         _gameObjectMarkSkins = _buttonsSkins[index].SpawnMark(_prefabMark);
+
                     }
 
                     else
@@ -129,6 +132,7 @@ public class GameManager : MonoBehaviour
                     else
                     {
                         _gameObjectMarkStand = _buttonsStands[index].SpawnMark(_prefabMark);
+
                     }
                 }
 
